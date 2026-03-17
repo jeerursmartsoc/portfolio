@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Jeeru Dinesh Reddy | SoC Design &amp; FPGA Architect</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --accent: #2b6cb0;
+    --accent-light: #ebf4ff;
+    --text: #2d3748;
+    --text-light: #718096;
+    --bg: #f7fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--primary); padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  nav .logo { color: #fff; font-weight: 700; font-size: 18px; letter-spacing: 1px; }
+  nav .links { display: flex; gap: 28px; }
+  nav .links a {
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px;
+    font-weight: 500; transition: color 0.2s;
+  }
+  nav .links a:hover { color: #fff; }
+
+  /* HERO */
+  .hero {
+    margin-top: 56px; background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+    color: #fff; padding: 80px 40px; display: flex; align-items: center;
+    justify-content: center; gap: 60px; flex-wrap: wrap;
+  }
+  .hero-photo {
+    width: 200px; height: 240px; border-radius: 12px; object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .hero-text { max-width: 560px; }
+  .hero-text h1 { font-size: 38px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero-text .tagline { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+  .hero-text .summary { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.75); }
+  .hero-buttons { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-buttons a {
+    display: inline-block; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary { background: #fff; color: var(--primary); }
+  .btn-primary:hover { background: #ebf4ff; }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.5); color: #fff; }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  /* SECTIONS */
+  section { max-width: 960px; margin: 0 auto; padding: 60px 24px; }
+  .section-title {
+    font-size: 26px; font-weight: 800; color: var(--primary);
+    margin-bottom: 32px; position: relative; padding-bottom: 10px;
+  }
+  .section-title::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 50px; height: 3px; background: var(--accent); border-radius: 2px;
+  }
+
+  /* CONTACT BAR */
+  .contact-bar {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; background: var(--white); border-radius: 12px;
+    padding: 28px; box-shadow: var(--shadow); margin-top: -40px;
+    position: relative; z-index: 10; max-width: 960px; margin-left: auto; margin-right: auto;
+  }
+  .contact-item { text-align: center; }
+  .contact-item .icon { font-size: 20px; margin-bottom: 4px; }
+  .contact-item .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+  .contact-item .value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .contact-item a { color: var(--accent); text-decoration: none; }
+
+  /* EXPERIENCE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 28px; background: var(--white);
+    border-radius: 10px; padding: 24px; box-shadow: var(--shadow);
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -24px; top: 28px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--bg);
+  }
+  .timeline-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+  .timeline-company { font-size: 17px; font-weight: 700; color: var(--primary); }
+  .timeline-dates {
+    font-size: 12px; color: var(--accent); font-weight: 600;
+    background: var(--accent-light); padding: 3px 10px; border-radius: 12px;
+  }
+  .timeline-role { font-size: 14px; color: var(--text-light); margin: 4px 0 10px 0; font-style: italic; }
+  .timeline-item ul { padding-left: 18px; }
+  .timeline-item li { font-size: 13px; line-height: 1.6; margin-bottom: 5px; color: #4a5568; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .skill-card {
+    background: var(--white); border-radius: 10px; padding: 22px;
+    box-shadow: var(--shadow); border-left: 4px solid var(--accent);
+  }
+  .skill-card h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .skill-card p { font-size: 13px; line-height: 1.6; color: #4a5568; }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .edu-card {
+    background: var(--white); border-radius: 10px; padding: 24px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent));
+  }
+  .edu-year { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  .edu-school { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .edu-detail { font-size: 13px; color: #4a5568; line-height: 1.5; }
+
+  /* PUBLICATIONS */
+  .pub-list { display: flex; flex-direction: column; gap: 14px; }
+  .pub-item {
+    background: var(--white); border-radius: 10px; padding: 20px;
+    box-shadow: var(--shadow); border-left: 4px solid var(--primary);
+  }
+  .pub-item .pub-num { font-size: 12px; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+  .pub-item p { font-size: 13px; color: #4a5568; line-height: 1.5; }
+  .pub-item i { color: var(--text-light); }
+
+  /* PATENT */
+  .patent-card {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff; border-radius: 12px; padding: 28px; box-shadow: var(--shadow);
+  }
+  .patent-card h4 { font-size: 16px; margin-bottom: 6px; }
+  .patent-card p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .patent-card .patent-id { font-size: 12px; opacity: 0.7; margin-top: 8px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--primary); color: rgba(255,255,255,0.7); text-align: center;
+    padding: 24px; font-size: 13px; margin-top: 40px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { padding: 50px 20px; gap: 30px; flex-direction: column; text-align: center; }
+    .hero-text h1 { font-size: 28px; }
+    .hero-buttons { justify-content: center; }
+    nav { padding: 0 16px; }
+    nav .links { gap: 16px; }
+    nav .links a { font-size: 12px; }
+    section { padding: 40px 16px; }
+    .contact-bar { margin: -30px 16px 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DR</div>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <img src="assets/photo.png" alt="Dr. Jeeru Dinesh Reddy" class="hero-photo">
+  <div class="hero-text">
+    <h1>Dr. Jeeru Dinesh Reddy</h1>
+    <div class="tagline">SoC Design &amp; FPGA Architect &nbsp;|&nbsp; 18+ Years in VLSI</div>
+    <div class="summary">
+      Seasoned FPGA Design and Verification engineer with ~18 years of experience spanning
+      ASIC/SoC design, FPGA prototyping, and programmable SoC development. Deep expertise in
+      RTL design, UVM/OVM verification, synthesis, STA, and DFT across ARM and RISC-V architectures.
+      Proven track record delivering complex SoC projects for Fujitsu, Renesas, NEC, Nvidia (AVCCORE),
+      and Skyworks. Ph.D. in hardware security (PUF) from NIT Surathkal.
+    </div>
+    <div class="hero-buttons">
+      <a href="assets/resume.pdf" class="btn-primary" download>Download Resume</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar" id="contact">
+  <div class="contact-item">
+    <div class="label">Phone</div>
+    <div class="value">+91 9620011107</div>
+  </div>
+  <div class="contact-item">
+    <div class="label">Email</div>
+    <div class="value"><a href="mailto:dinesh.728@gmail.com">dinesh.728@gmail.com</a></div>
+  </div>
+  <div class="contact-item">
+    <div class="label">Location</div>
+    <div class="value">K.R. Puram, Bengaluru</div>
+  </div>
+  <div class="contact-item">
+    <div class="label">Languages</div>
+    <div class="value">EN, HI, TE, JP (JLPT-3)</div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Work Experience</div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">IndieSemiC Pvt. Ltd.</span>
+        <span class="timeline-dates">Sep 2025 &ndash; Present</span>
+      </div>
+      <div class="timeline-role">SoC Design Lead &mdash; Sabarmati Radio SoC</div>
+      <ul>
+        <li>Leading RTL design, FPGA prototyping, DV, and synthesis for a RISC-V IoT SoC targeting GF 40LP tapeout.</li>
+        <li>Designed and verified SRAM controller, PLIC, DMA integration, pad ring, and clock/reset subsystem.</li>
+        <li>Developed C-based firmware test suite (38+ tests) and JTAG SBA debug infrastructure for FPGA validation.</li>
+        <li>Developed bare-metal SDK, bootloader, and FPGA-based IDE for firmware development.</li>
+        <li>Drove synthesis closure with Cadence Genus on 45nm GSC library.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">Skyworks Solutions, Inc.</span>
+        <span class="timeline-dates">Jun 2024 &ndash; Aug 2025</span>
+      </div>
+      <div class="timeline-role">FPGA Development Engineer</div>
+      <ul>
+        <li>Developed FPGA interface for a Digital Audio Signal Processing ASIC RTL using Goertzel algorithm.</li>
+        <li>Designed TDM master on Arty A7 FPGA for I2S signal generation (BCLK, MCLK, FSYNC, SDIO).</li>
+        <li>Resolved signal instability, BCLK process variation, and timing misalignment issues.</li>
+        <li>Explored SoC development environments: LiteX, Bluespec SystemVerilog, Chisel/Scala with FPGA validation.</li>
+        <li>AI model training for AXI interconnect crossbar architecture exploration and optimization.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">Fujitsu (via contract)</span>
+        <span class="timeline-dates">Previous</span>
+      </div>
+      <div class="timeline-role">Design &amp; Verification Lead</div>
+      <ul>
+        <li>FPGA validation of Hi-Speed 1FINITY optical transmission system (OTN processor, 100GbE, PCIe).</li>
+        <li>Prototyped on Zynq UltraScale+ and Xilinx 7-series (22nm) for transport blade validation.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">AVCCORE (acquired by Nvidia)</span>
+        <span class="timeline-dates">Previous</span>
+      </div>
+      <div class="timeline-role">FPGA Design &amp; Verification Engineer</div>
+      <ul>
+        <li>FPGA prototyping of video decoder for H.264, MPEG2, VC1 standards.</li>
+        <li>Designed video decoder master control, IDCT module, prediction and transform blocks.</li>
+        <li>Gate-level simulations for Static Timing Analysis; top-level regression with Sony NL1 bitstream.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">NEC Micro Electronic Systems / Renesas</span>
+        <span class="timeline-dates">Previous</span>
+      </div>
+      <div class="timeline-role">ASIC Design Engineer / Onsite Coordinator (Japan)</div>
+      <ul>
+        <li>SoC design for flash controller interface (10 macros), Panther SoC (IDE/ATAPI, SH4A), and SH72546RFCC security core.</li>
+        <li>Developed UVM/OVM verification environments; Cadence RC, VCS, PrimeTime STA.</li>
+        <li>1 year onsite in Japan as bridge engineer coordinating design and verification teams.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--white); max-width: 100%; padding: 60px calc((100% - 960px)/2 + 24px);">
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>HDLs &amp; Languages</h4>
+      <p>SystemVerilog, Verilog, VHDL, Verilog-AMS, VHDL-AMS, Specman, Vera, C/ASM (bare-metal RISC-V), Python</p>
+    </div>
+    <div class="skill-card">
+      <h4>EDA Tools</h4>
+      <p>Vivado, Vivado HLS, Vitis, Cadence Xcelium, Genus, RTL Compiler, VCS, Design Compiler, JasperGold, Spyglass, Questa-Prime, PrimeTime, ModelSim</p>
+    </div>
+    <div class="skill-card">
+      <h4>Architectures &amp; Protocols</h4>
+      <p>RISC-V (RV64IM), ARM Cortex-A9/R/M, SH4A &nbsp;|&nbsp; AXI4, AHB, APB, SPI, I2C, UART, Ethernet, PCIe, I2S/TDM</p>
+    </div>
+    <div class="skill-card">
+      <h4>Methodologies</h4>
+      <p>UVM, OVM, RTL-to-GDSII, DFT, Assertion-Based Verification, Formal Verification, STA, Code/Functional Coverage</p>
+    </div>
+    <div class="skill-card">
+      <h4>FPGA Platforms</h4>
+      <p>Xilinx Spartan, Virtex, Kintex, Zynq, UltraScale+, Arty A7, Genesys 2</p>
+    </div>
+    <div class="skill-card">
+      <h4>Domains</h4>
+      <p>SoC Integration, FPGA Prototyping, Synthesis, Clock/Reset, Hardware Security (PUF), Bare-metal Firmware, OpenOCD/JTAG</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-title">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div class="edu-school">NIT Surathkal, Karnataka</div>
+      <div class="edu-detail">Ph.D. &mdash; FPGA Based Physical Unclonable Function (PUF) for IoT Security</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">M.E.</div>
+      <div class="edu-school">PSG College of Technology, Coimbatore</div>
+      <div class="edu-detail">Master of Engineering in VLSI Design &mdash; Anna University</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">B.E.</div>
+      <div class="edu-school">GITAM College of Engineering</div>
+      <div class="edu-detail">Bachelor of Engineering in Electronics &amp; Communication &mdash; Andhra University</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH & PUBLICATIONS -->
+<section id="research" style="background: var(--white); max-width: 100%; padding: 60px calc((100% - 960px)/2 + 24px);">
+  <div class="section-title">Patent &amp; Research</div>
+
+  <div class="patent-card" style="margin-bottom: 28px;">
+    <h4>Design Patent &mdash; Secure Authentication Hardware for IoT Networks</h4>
+    <p>Design of a hardware-based PUF authentication module for IoT endpoint security, leveraging FPGA intrinsic process variations for unique device fingerprinting.</p>
+    <div class="patent-id">Design No. 464265-001 &nbsp;|&nbsp; Patent Office, Govt. of India &nbsp;|&nbsp; Class 14-02 &nbsp;|&nbsp; Issued 2025</div>
+  </div>
+
+  <div style="font-size:15px; font-weight:700; color: var(--primary); margin-bottom: 14px;">Ph.D. Thesis</div>
+  <div class="pub-item" style="margin-bottom: 24px; border-left-color: var(--accent);">
+    <p><strong>"FPGA Based Physical Unclonable Function (PUF) &mdash; A Hardware Security Macro in IoT Environment"</strong><br>
+    NIT Surathkal &nbsp;|&nbsp; Defended January 2024<br><br>
+    PUF design on Zynq (ARM Cortex-A9), Spartan-3e to 7-series. Methodology for uniqueness, uniformity, reliability, and attack resilience.</p>
+  </div>
+
+  <div style="font-size:15px; font-weight:700; color: var(--primary); margin-bottom: 14px;">Publications</div>
+  <div class="pub-list">
+    <div class="pub-item">
+      <div class="pub-num">1</div>
+      <p>"Design of Pseudo-LFSR Based Physical Unclonable Function," <i>The Journal of Engineering Research</i>, Vol. 21, No. 2, 2024.</p>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">2</div>
+      <p>"Design And Modelling An Attack on Multiplexer Based PUF," <i>Int. J. of Engineering Trends and Technology</i>, Vol. 68(6), 2020.</p>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">3</div>
+      <p>"Enhanced Parallel Port Interface for Frequency Analysis in Ring Oscillator PUF on Spartan 3E," <i>IEEE CONECCT</i>, Bangalore, 2019.</p>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">4</div>
+      <p>"AI Based Smart Traffic Management," Salman N (guided) &mdash; IoT &amp; image processing based adaptive signal control, 2025.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Dr. Jeeru Dinesh Reddy &nbsp;|&nbsp; SoC Design &amp; FPGA Architect &nbsp;|&nbsp; Bengaluru, India
+</footer>
+
+</body>
+</html>
