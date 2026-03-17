@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" fill="none">
+  <!-- Chip outline -->
+  <rect x="2" y="6" width="32" height="32" rx="3" stroke="#fff" stroke-width="2" fill="none"/>
+  <!-- Chip pins left -->
+  <line x1="0" y1="14" x2="2" y2="14" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="0" y1="22" x2="2" y2="22" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="0" y1="30" x2="2" y2="30" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <!-- Chip pins right -->
+  <line x1="34" y1="14" x2="36" y2="14" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="22" x2="36" y2="22" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="30" x2="36" y2="30" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <!-- Chip pins top -->
+  <line x1="11" y1="4" x2="11" y2="6" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18" y1="4" x2="18" y2="6" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="25" y1="4" x2="25" y2="6" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <!-- Chip pins bottom -->
+  <line x1="11" y1="38" x2="11" y2="40" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18" y1="38" x2="18" y2="40" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <line x1="25" y1="38" x2="25" y2="40" stroke="#63b3ed" stroke-width="2" stroke-linecap="round"/>
+  <!-- Pin 1 dot -->
+  <circle cx="8" cy="12" r="1.5" fill="#63b3ed"/>
+  <!-- Inner circuit traces -->
+  <path d="M10 18 L14 18 L14 26 L22 26" stroke="#63b3ed" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M22 18 L26 18 L26 22" stroke="#63b3ed" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="22" cy="18" r="1.5" fill="#63b3ed"/>
+  <circle cx="22" cy="26" r="1.5" fill="#63b3ed"/>
+  <!-- Name text -->
+  <text x="44" y="20" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="800" fill="#ffffff" letter-spacing="0.5">DINESH</text>
+  <text x="44" y="34" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="500" fill="#63b3ed" letter-spacing="3">REDDY</text>
+  <!-- Trace from chip to name -->
+  <line x1="36" y1="22" x2="42" y2="22" stroke="#63b3ed" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+</svg>
