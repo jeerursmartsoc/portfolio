@@ -286,14 +286,44 @@
 
     <div class="timeline-item">
       <div class="timeline-header">
-        <span class="timeline-company">NEC Micro Electronic Systems / Renesas</span>
+        <span class="timeline-company">Renesas Corporation</span>
         <span class="timeline-dates">Previous</span>
       </div>
-      <div class="timeline-role">ASIC Design Engineer / Onsite Coordinator (Japan)</div>
+      <div class="timeline-role">ASIC Design &amp; Verification Engineer</div>
       <ul>
-        <li>SoC design for flash controller interface (10 macros), Panther SoC (IDE/ATAPI, SH4A), and SH72546RFCC security core.</li>
-        <li>Developed UVM/OVM verification environments; Cadence RC, VCS, PrimeTime STA.</li>
-        <li>1 year onsite in Japan as bridge engineer coordinating design and verification teams.</li>
+        <li>SoC design and verification for SH72546RFCC Security Core &mdash; verified SCI (Serial Communication Interface) with CPU, RTL integration, and test vector generation in assembler.</li>
+        <li>Developed VTESTER environment for SH72544R SoC &mdash; automated VCD generation, VCD-to-EVO conversion, and regression verification scripts.</li>
+        <li>Panther SoC for mobile applications &mdash; designed and verified IDE/ATAPI module with SH4A processor; verified I2C, TMU, GDU, FLCTL, Ethernet controller, and SSI modules.</li>
+        <li>Test cases coded in SH4A assembler; SoC compiled and simulated using Cadence NCsim.</li>
+        <li>Synthesized with constraints and false path analysis using RTL Compiler and PrimeTime.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">NEC Micro Electronic Systems (NMS)</span>
+        <span class="timeline-dates">Previous</span>
+      </div>
+      <div class="timeline-role">ASIC Designer / Onsite Coordinator (Japan)</div>
+      <ul>
+        <li>Complete design and verification of flash controller interface block (10 macros) interacting with Code Flash and Data Flash peripherals.</li>
+        <li>Developed SystemVerilog OVM-based verification environment from scratch to final working SoC boot-from-flash.</li>
+        <li>Tool flow: Cadence RC, VCS, and static timing analysis with gate-level simulations.</li>
+        <li>1 year onsite in Japan as bridge engineer &mdash; coordinated design and verification teams, presented formal verification with RTL assertions, OVM architecture, and constrained randomization methodology to clients.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <span class="timeline-company">Wipro Technologies</span>
+        <span class="timeline-dates">Previous</span>
+      </div>
+      <div class="timeline-role">FPGA Design &amp; Verification Engineer</div>
+      <ul>
+        <li>FPGA design of APB Watchdog Timer with Real Time Clock &mdash; RTL design using Verilog HDL, class-based verification environment in SystemVerilog, functional and code coverage for sign-off.</li>
+        <li>FPGA design of AXI Dual Port RAM for Real Multiplier using IEEE 754 floating-point representation &mdash; architected AXI peripheral interfaced with CPU and memory controller.</li>
+        <li>FPGA design of Video Graphics Adaptor for image acquisition and compression algorithms &mdash; implemented RTL in Verilog HDL, resolved multi-clock domain violations with DC, validated on Spartan and Xilinx Virtex-6 FPGA boards.</li>
+        <li>Verified RTL modules using SystemVerilog; generated functional and code coverage for verification sign-off across all projects.</li>
       </ul>
     </div>
 
